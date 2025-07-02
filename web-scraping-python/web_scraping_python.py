@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys 
 
 os.environ['PATH'] += r"C:\proyectos\python\web-scraping-python\chromedriver-win64" # Add the path to the ChromeDriver executable to the system PATH
 driver = webdriver.Chrome() # Initialize the Chrome driver, opens a new browser window
@@ -23,5 +24,23 @@ WebDriverWait(driver, 30).until(  #espera 30s hasta el h1 cambia
         "Submitted Successfully!"  #Filtro para que espere hasta que el texto del h1 sea "Submitted Successfully!"
         )
 )
+
+driver.get("https://www.selenium.dev/selenium/web/formPage.html")
+
+driver.implicitly_wait(10)
+
+#ejemplo1: suponemos que aparece un popup de forma aleatoria con una oferta al que debo clickear "no thanks!"
+try:
+    no_button = driver.find_element(By.CLASS_NAME, "at-cm-no-button")
+    no_button.click()
+except:
+    print('No element with this class name. Skipping...')
+
+my_driver_key = driver.find_element(By.ID, "email")
+my_driver_key2 = driver.find_element(By.ID, "working")
+
+my_driver_key.send_keys("texto de prueba de key 1")
+#puedo automatizar cualquier tecla, como enter, Ctrl C, Ctrl V, etc.
+my_driver_key2.send_keys(Keys.NUMPAD5, Keys.NUMPAD2)
 
 
