@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0f0f3173-369c-4929-a57c-91234c1e2b3e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>web_scraping_python.py</StartupFile>
+    <StartupFile>Bot\run.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="web_scraping_python.py" />
+    <Compile Include="Bot\booking\booking.py" />
+    <Compile Include="Bot\booking\constants.py" />
+    <Compile Include="Bot\booking\__init__.py" />
+    <Compile Include="Bot\run.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bot\" />
+    <Folder Include="Bot\booking\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
